@@ -25,7 +25,7 @@ module.exports = class Game {
         this.LastPlayUnoFail = false;
 
         this.created = new Date();
-        this.lastMove = null;
+        this.lastMove = new Date();
     }
 
     addPlayer(name) {
