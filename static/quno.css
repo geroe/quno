@@ -406,10 +406,52 @@ div.hand span {
     background-image: linear-gradient(170deg, gray, dimgray, darkgray);
 }
 
-div.bottom {
-    grid-column: span 2;
+div#toast {
     display: block;
-    height: 90px;
+    visibility: hidden;
+    padding: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 10vh;
+    right: 5vw;
+    bottom: 25vh;
+    left: 5vw;
+    z-index: 1;
+    opacity: .8;
+}
+
+div#toast.active {
+    visibility: visible;
+    animation: toast-fadein 0.5s, toast-fadeout 0.5s 1.5s;
+}
+
+@keyframes toast-fadein {
+    from {opacity: 0;}
+    to {opacity: .8;}
+}
+
+@keyframes toast-fadeout {
+    from {opacity: .8;}
+    to {opacity: 0;}
+}
+
+div.toastwrap {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+div.toastwrap span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 200px;
+    color: white;
+    -webkit-text-stroke: 4px black;
+    text-stroke: 4px black;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
 /* mobile stuff */
@@ -422,6 +464,10 @@ div.bottom {
 
     a {
         font-size: 16px;
+    }
+
+    div.toastwrap span {
+        font-size: 100px;
     }
 }
 

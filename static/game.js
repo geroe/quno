@@ -1,6 +1,18 @@
 var gameId = null;
 var userId = null;
 
+var lastCharge = 0;
+
+var toast = function(text) {
+    if (!text) return;
+    document.getElementById('toastmessage').innerHTML=text;
+    document.getElementById('toast').setAttribute('class','active');
+
+    setTimeout(function() {
+        document.getElementById('toast').removeAttribute('class');
+    },2000);
+}
+
 var getTextData = function(method,func) {
     fetch(window.location.toString()+method)
         .then((res) => {
@@ -137,6 +149,11 @@ var processUpdate = function(data) {
         if (data.stack.first.color=='black' && data.stack.colorcharge) {
             stack.innerHTML = '<span class="colorcharge '+data.stack.colorcharge+'">&bull;</span>'+stack.innerHTML;
         }
+
+        if (data.stack.charge>lastCharge) {
+            toast('+'.data.stack.charge.toString());
+        }
+        lastCharge = data.stack.charge;
     } else {
         stack.removeAttribute('class');
         stack.innerHTML = '';
