@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Source+Code+Pro:wght@600&display=swap');
+
+body {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+    font-size: 24px;
+    margin-right: 20px;
+    padding: 5px 15px;
+    background-color: rgba(255,255,255,.2);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: rgba(255,255,255,.5);
+}
+
+a:hover span {
+    background: linear-gradient(90deg, navy, blue, cornflowerblue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+label {
+    display: block;
+    padding-bottom: 10px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+div.center {
+    padding-top: 10vh;
+    max-width: 400px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+div.center div {
+    margin-top: 5vh;
+    text-align: left;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 48px;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(90deg, navy, blue, cornflowerblue, lightblue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+input {
+    font-size: 48px;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background-color: unset;
+    font-family: 'Gloria Hallelujah', cursive;
+    padding: 5px 10px;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+input:hover, input:required:invalid, input:focus {
+    background-color: rgba(255,255,255,.2);
+    border-bottom: 1px solid black;
+}
+
+input#code {
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+}
+
+div#codearea, div#joinarea { display:none; }
+
+h1#quno {
+   cursor: pointer;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+div.viewport {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient( 170deg, orange, hotpink, deepskyblue, cornsilk);
+}
+
+div.viewport.game {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: min-content min-content auto min-content min-content min-content;
+    align-items: stretch;
+}
+
+div.griditem {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+div.middle, div.bottom {
+    display: table;
+}
+
+div.middle div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div.bottom div {
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+div.actions {
+    grid-column: span 2;
+    text-align: right;
+    background-color: rgba(255,255,255,.4);
+    backdrop-filter: blur(4px) grayscale(30%);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,.3);
+    padding: 5px 20px;
+    color: white;
+    font-size: 12px;
+}
+
+div.actions a {
+    color: white;
+    text-decoration: underline;
+    margin-right: 40px;
+    background: unset;
+    font-size: 12px;
+}
+
+div.actions span.code {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+    letter-spacing: 5px;
+    padding: 0px 0px 0px 10px;
+    font-size: 16px;
+}
+
+div.players {
+    grid-column: span 2;
+    text-align: center;
+}
+
+div.players li {
+    display: inline-block;
+    height: 76px;
+    width: 76px;
+    border: 2px solid rgba(0,120,120,.4);
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.05);
+    color: slategray;
+    margin: 0px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 80%;
+    cursor: default;
+}
+
+div.players li.active {
+    background-color: rgba(255,255,255,.3);
+    height: 70px;
+    width: 70px;
+    border: 5px solid white;
+    color: white;
+}
+
+.players .playername {
+    display: block;
+    line-height: 40px;
+}
+
+.players .active .playername {
+    display: block;
+    line-height: 38px;
+}
+
+.players .cardcount {
+    font-weight: bold;
+    font-size: 200%;
+}
+
+div.deck {
+    text-align: right;
+}
+
+div.stack {
+    text-align: left;
+}
+
+div.middle ul {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div.deck li, div.stack li {
+    display: inline-block;
+    height: 140px;
+    width: 70px;
+    border-radius: 8px;
+    border: 2px solid white;
+    padding: 10px 15px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 34px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+    text-stroke: 2px black;
+    box-shadow: 0px 3px 5px 2px rgba(0,0,0,.5);
+    cursor: default;
+}
+
+div.deck li {
+    height: 144px;
+    width: 74px;
+    border-radius: 8px;
+    border: 0;
+    background-image: linear-gradient(140deg, black,  #660000, #005500,mediumblue, #aaaa00, white);
+    line-height: 140px;
+    font-size: 24px;
+    text-align: center;
+    color: rgba(255,255,255,.2);
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
+    cursor: grab;
+}
+
+.stack li span.colorcharge {
+    display: block;
+    float: right;
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+    margin-left: 5px;
+    font-size: 150%;
+    line-height: 75%;
+}
+
+.stack .colorcharge.red {
+    color: #dd1111;
+    background-image: unset;
+}
+
+.stack .colorcharge.blue {
+    color: blue;
+    background-image: unset;
+}
+
+.stack .colorcharge.green {
+    color: limegreen;
+    background-image: unset;
+}
+
+.stack .colorcharge.yellow {
+    color: yellow;
+    background-image: unset;
+}
+
+div.task {
+    grid-column: span 2;
+    height: 70px;
+    text-align: center;
+    font-size: 48px;
+    padding: 5px;
+}
+
+div.task a {
+    border-radius: 8px;
+    border: 3px solid white;
+    padding: 3px 10px;
+    margin: 0px 10px;
+    color: white;
+    background-color: rgba(0,0,0,.3);
+    cursor: pointer;
+    box-shadow: -1px 0px 3px 0px rgba(0,0,0,.5);
+    transition: box-shadow .3s ease-out;
+}
+
+div.task a:hover {
+    box-shadow: -1px 0px 7px 3px rgba(0,0,0,.6);
+}
+
+
+
+div.task .dot {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 0px 10px;
+    border: 4px solid white;
+    display: inline-block;
+    transition: all .3s ease-out;
+}
+
+div.task .dot:hover {
+    box-shadow: -1px 0px 7px 3px rgba(0,0,0,.6);
+}
+
+div.hand {
+    text-align: center;
+    grid-column: span 2;
+    padding: 20px 0px 0px 0px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+div.hand ul {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 10px;
+}
+
+div.hand li {
+    display: inline-block;
+    height: 70px;
+    width: 3rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    padding: 10px 15px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 34px;
+    color: white;
+    margin: 0;
+    -webkit-text-stroke: 2px black;
+    text-stroke: 2px black;
+    box-shadow: -1px 0px 3px 0px rgba(0,0,0,.5);
+    cursor: grab;
+    overflow: hidden;
+    transition: all .3s ease-out;
+}
+
+div.hand li:first-child {
+    width: 70px;
+    border-top-left-radius: 8px;
+}
+
+div.hand li:hover {
+    box-shadow: -1px 0px 7px 3px rgba(0,0,0,.6);
+}
+
+div.hand li:last-child {
+    border-top-right-radius: 8px;
+    border-right: 2px solid white;
+}
+
+div.hand span {
+    font-size: 250%;
+    line-height: 200%;
+}
+
+.red {
+    background-image: linear-gradient(170deg, indianred, red, palevioletred);
+}
+
+.green {
+    background-image: linear-gradient(170deg, lightgreen, limegreen, lime);
+}
+
+.blue {
+    background-image: linear-gradient(170deg, dodgerblue, cornflowerblue, deepskyblue);
+}
+
+.yellow {
+    background-image: linear-gradient(170deg, lightgoldenrodyellow, yellow, lightyellow);
+}
+
+.black {
+    background-image: linear-gradient(170deg, gray, dimgray, darkgray);
+}
+
+div.bottom {
+    grid-column: span 2;
+    display: block;
+    height: 90px;
+}
+
+/* touchy stuff */
+@media (hover) {
+    div.viewport {
+        grid-template-rows: min-content min-content auto min-content min-content 0px;
+    }
+
+    div.bottom {
+        display: none;
+        height: 0px;
+    }
+}
+
+@media (max-width: 800px) {
+    div.hand span {
+        font-size: 150%;
+        line-height: 100%;
+    }
+
+    a {
+        font-size: 16px;
+    }
+}

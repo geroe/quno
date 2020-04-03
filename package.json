@@ -1,0 +1,16 @@
+{
+  "name": "quno",
+  "version": "1.0.0",
+  "description": "Quarantine UNO",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "georg.roesch@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "express-sse": "latest",
+    "uuid": "latest"
+  }
+}

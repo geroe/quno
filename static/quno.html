@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/static/touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/static/touch-icon-167x167.png">
+    <title>qUNO</title>
+    <link rel="stylesheet" href="/static/quno.css" />
+    <script src="/static/game.js"></script>
+</head>
+<body>
+<div class="viewport">
+    <div class="center">
+        <div><h1 id="quno">qUNO</h1></div>
+        <div id="namearea">
+            <label for="name">Enter your name</label>
+            <input required type="text" maxlength="7" id="name" size="7" autocomplete="off" value=""/>
+        </div>
+        <div id="actionarea"><a id="startbtn"><span>Start new game</span></a><a id="entercode"><span>Enter code</span></a></div>
+        <div id="codearea">
+            <label for="code">Enter code</label>
+            <input required type="text" maxlength="5" id="code" size="5"/>
+        </div>
+        <div id="joinarea"><a id="joinbtn"><span>Join game</span></a></div>
+    </div>
+</div>
+<script>
+    initGameStart();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/static/touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/static/touch-icon-167x167.png">
+    <title>qUNO</title>
+    <link rel="stylesheet" href="/static/quno.css" />
+    <script src="/static/game.js"></script>
+</head>
+<body>
+    <div class="viewport game">
+        <div class="griditem actions" id="head"><a href="/">Home</a>Game code:<span class="code" id="code">GAME</span></div>
+        <div class="griditem players noselect"><ul id="players"></ul></div>
+        <div class="griditem deck noselect middle"><ul><li id="deck">qUNO</li></ul></div>
+        <div class="griditem stack noselect middle"><ul><li id="stack" ></ul></div>
+        <div class="griditem task noselect" id="tasks"></div>
+        <div class="griditem noselect hand"><ul id="hand"></ul></div>
+        <div class="griditem noselect bottom"></div>
+    </div>
+    <script>
+        window.onload = init();
+    </script>
+</body>
+</html>
