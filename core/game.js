@@ -48,6 +48,8 @@ module.exports = class Game {
 
         //empty stack
         this.stack.cards = [];
+        this.stack.colorcharge='';
+        this.stack.charge=0;
 
         //empty hand
         this.players.forEach(function(player) {
@@ -107,12 +109,12 @@ module.exports = class Game {
                 }
 
                 //rebalance deck
+                /* @todo not working - debug & fix
                 if (this.stack.cards.length > this.deck.cards.length) {
-
                     let first = this.stack.cards.pop();
                     this.deck.cards.reverse().concat(this.deck.shuffle(this.stack.cards)).reverse();
                     this.stack.cards = [].push(first);
-                }
+                }*/
             }
 
             this.lastPlayStatus='ok';
