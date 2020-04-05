@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>qUNO icon generator</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         div.icon {
-            margin: 50px;
-            width: 1024px;
+            margin: 10px;
+            /*width: 1024px;
             height: 1024px;
             line-height: 1024px;
-            font-size: 210px;
+            font-size: 210px;*/
             background-image: linear-gradient( 170deg, orange, hotpink, deepskyblue, cornsilk);
             text-align: center;
-            font-family: Arial;
+            font-family: 'Archivo Black';
             font-weight: bold;
         }
 
@@ -27,6 +28,31 @@
     </style>
 </head>
 <body>
-    <div class="icon"><span>qUNO</span></div>
+    <script>
+        [120,152,167,180,1024].forEach(function(size) {
+            let el = document.createElement('div');
+            let sizePx = size.toString()+'px';
+            el.setAttribute('class','icon');
+            el.style.height = sizePx;
+            el.style.width = sizePx;
+            el.style.lineHeight = sizePx;
+            el.style.fontSize = Math.floor(size/5).toString()+'px';
+            el.innerHTML = '<span>qUNO</span>';
+
+            let h1 = document.createElement('h1');
+            h1.innerText = size.toString()+'x'+size.toString();
+            document.body.append(h1)
+            /*let h2Html = document.createElement('h2');
+            h2Html.innerText = 'HTML';
+            document.body.append(h2Html)*/
+            document.body.append(el);
+
+            //html2canvas does not support background-clip text, so converting to img is useless
+            /*let h2Img = document.createElement('h2');
+            h2Img.innerText = 'Image';
+            document.body.append(h2Img)
+            html2canvas(el).then(canvas => { document.body.appendChild(canvas); });*/
+        });
+    </script>
 </body>
 </html>
