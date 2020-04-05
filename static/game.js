@@ -81,11 +81,11 @@ var init = function() {
     userId = urlPath.pop();
     gameId = urlPath.pop();
 
-    let head = document.getElementById('code');
-    head.innerHTML=gameId;
-
-    let deck = document.getElementById('deck');
-    deck.onclick = draw;
+    document.getElementById('code').innerHTML=gameId;
+    document.getElementById('deck').onclick = draw;
+    document.getElementById('reloadbtn').onclick = function() {
+        window.location.reload();
+    };
 
     var stream = new EventSource(window.location.toString()+'/stream');
     stream.onmessage = function(event) {
@@ -151,7 +151,7 @@ var processUpdate = function(data) {
         }
 
         if (data.stack.charge>lastCharge) {
-            toast('+'.data.stack.charge.toString());
+            toast('+'+data.stack.charge.toString());
         }
         lastCharge = data.stack.charge;
     } else {
@@ -207,9 +207,9 @@ var processUpdate = function(data) {
 
     if (data.game.status=="ended" && data.game.winner) {
         hand.innerHTML =
-            '<span class"winner">'
+            '<div class"winner">'
             +(data.game.winner.shortId==data.me.shortId ? 'Congratulations! You' : 'Ohhh... ' + data.game.winner.name) + ' won!'
-            +'</span>';
+            +'</div>';
     } else if (data.hand && data.game.status!='ended') {
         data.hand.forEach(function (card) {
             let li = document.createElement('li');
