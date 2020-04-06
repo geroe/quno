@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-var config = require('./config.json');
+const config = require('./config.json');
 
 app.use('/static', express.static('static'));
 app.use('/',require('./routes/start'));
